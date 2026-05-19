@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Campeonato efotball</title>
+  <style>
+    body{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      background:#111;
+      color:white;
+      font-family:Arial;
+    }
+
+    video{
+      width:90%;
+      max-width:400px;
+      border-radius:10px;
+    }
+
+    canvas{
+      display:none;
+    }
+
+    img{
+      width:90%;
+      max-width:400px;
+      border-radius:10px;
+    }
+
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .camera_div{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .fomulario{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      background-color: white;
+      color: #111;
+      width: 400px;
+      height: 500px;
+      border-radius: 10px;
+    }
+    .fomulario .form{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .fomulario .form input{
+      padding:10px;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+    #confirm{
+      background-color: green;
+      color: white;
+      display: none;
+    }
+    .carregamento-background{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .carregamento-background .animacao-carregando{
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: girar 1s linear infinite;
+    }
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .popup-welcome{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 10000;
+    }
+    .popup-welcome button{
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-welcome" id="popupwelcome">
+    <h1>Bem-vindo ao Campeonato de eFootball!</h1>
+    <p>Prepare-se para competir com os melhores jogadores e mostrar suas habilidades no campo virtual!</p>
+    <button id="btnconfirm">Entrar</button>
+  </div>
+  <div class="carregamento-background" id="back_animation">
+    <div class="animacao-carregando" id="animation_load"></div>
+  </div>
+     <h1>Participe do campeonato!</h1>
+     <p>DATA DO TONEIO:  30/06/2026</p>
+     <button id="init">Clique para se cadastrar!</button>
+ <div class="camera_div">
+
+    <h1>TIRE SUA FOTO</h1>
+    <p>pode ser qualquer imagem ou você mesmo, para colocar na logo do time!</p>
+
+  <video id="camera" autoplay playsinline></video>
+
+  <button id="tirarFoto">Tirar Foto</button>
+
+  <canvas id="canvas"></canvas>
+
+  <img id="foto">
+  <button style="display: none;" id="Confirm">Confirma
+  </button>
+ </div>
+
+ <div class="fomulario">
+    <h2>Formulário de Cadastro</h2>
+    <div class="form">
+        <label for="nome">Nome Completo:</label><br>
+      <input type="text" id="nome" name="nome" required><br><br>
+        <label for="email">seleção:</label><br>
+        <input type="text" id="selecao">
+      <button id="enviar_formulario">Enviar Cadastro</button>
+    </div>
+ </div>
+<script src="app.js"></script>
+</body>
+</html>
